@@ -1,0 +1,34 @@
+# Securing Spring Boot and Redis with SSL/TLS
+
+This repository contains a sample of configuring a Spring Boot client application to use a Redis server with SSL/TLS.
+
+The source code for the sample is from https://spring.io/guides/gs/messaging-redis/[Spring Guides].
+
+The Redis SSL/TLS configuration is derived from https://github.com/allen-munsch/docker-redis-ssl-example.
+
+## Running the sample
+
+Generate client and server SSL certificates with a root certificate authority and copy them to the server and application:
+
+```bash
+./scripts/gen-redis-certs.sh
+```
+
+Start the Redis server in a Docker container using Docker compose:
+
+```bash
+docker compose up
+```
+
+Build and start the application:
+
+```bash
+./gradlew bootRun
+```
+
+If successful, you will see two messages at the end of the log output containing:
+
+```
+Sending message...
+Received <Hello from Redis!>
+```

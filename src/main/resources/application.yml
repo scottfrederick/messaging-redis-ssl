@@ -1,0 +1,14 @@
+spring:
+  ssl:
+    bundle:
+      pem:
+        redis:
+          keystore:
+            certificate: "classpath:tls/client.crt"
+            private-key: "classpath:tls/client.key"
+          truststore:
+            certificate: "classpath:tls/ca.crt"
+  data:
+    redis:
+      ssl:
+        bundle: "redis"
