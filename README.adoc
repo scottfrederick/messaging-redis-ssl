@@ -14,17 +14,14 @@ Generate client and server SSL certificates with a root certificate authority an
 ./scripts/gen-redis-certs.sh
 ```
 
-Start the Redis server in a Docker container using Docker compose:
-
-```bash
-docker compose up
-```
-
-Build and start the application:
+Build and run the application:
 
 ```bash
 ./gradlew bootRun
 ```
+
+The project includes a `docker-compose.yml` file to start the Redis server in a Docker container.
+You don't need to manually run `docker compose up`, as https://docs.spring.io/spring-boot/docs/3.1.0-SNAPSHOT/reference/htmlsingle/#features.docker-compose[Spring Boot will do that for you].
 
 If successful, you will see two messages at the end of the log output containing:
 

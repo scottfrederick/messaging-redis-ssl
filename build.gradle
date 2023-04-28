@@ -16,11 +16,16 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
-//	implementation('org.springframework.boot:spring-boot-starter-data-redis') {
-//		exclude group: 'io.lettuce', module: 'lettuce-core'
-//	}
-//	implementation 'redis.clients:jedis'
+	if (project.hasProperty("useJedis")) {
+		implementation('org.springframework.boot:spring-boot-starter-data-redis') {
+			exclude group: 'io.lettuce', module: 'lettuce-core'
+		}
+		implementation 'redis.clients:jedis'
+	} else {
+		implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+	}
+	implementation 'org.springframework.boot:spring-boot-docker-compose'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
