@@ -65,7 +65,7 @@ generate_cert client "localhost" "-extfile tls/openssl.cnf -extensions client_ce
 generate_cert redis "localhost"
 
 mkdir -p redis/tls
-cp tls/redis.* redis/tls
+cp tls/server.* redis/tls
 cp tls/ca.crt redis/tls
 
 mkdir -p src/main/resources/tls
